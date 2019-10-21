@@ -1,9 +1,8 @@
-; The hex num (eg: 0xABCD) is stored at dx
-; Use print_string to print the hex string
+; Print the hex of the number in the dx register
+; dx = 0xABCD
 
 print_hex:
-    pusha   ; save all register values
-
+    pusha
     mov bx, HEX_OUT
 
     mov ax, dx                      ; ax = 0xABCD
@@ -44,11 +43,8 @@ print_hex_convert_to_char:
     ret
 
 print_hex_convert_to_letter:
-    add ax,55 ; ax = ax + 65 - 10
+    add ax, 55                      ; ax = ax + 'A' - 10
     ret
 
-; placeholder
-; we will modify this string depend on the
-; value in the dx register
 HEX_OUT:
     db '0x0000', 0
